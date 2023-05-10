@@ -12,16 +12,16 @@ namespace ReadWS2812Signal
         {
             //元の、defineスイッチの設定を行う。
             Init(false, false, true, true);
-
-            CodeStartSimple("pio0_sm0", 0, 1, 1, UNUSE, UNUSE, UNUSE, UNUSE, false);
+            CodeStart("ReadWS2812", 0, 0, 1, UNUSE, UNUSE, UNUSE, UNUSE, false, false, true, 24, true, false, 0, 0, false, 1);
             WrapTarget();
 
-            Nop();
-            Nop();
+            Wait(true, Operands4.GPIO, 0, false, UNUSE, 9);
+            In(Operands1.PINS, 1);
+            Wait(false, Operands4.GPIO, 0, false, UNUSE, 0);
 
             Wrap();
 
-            CodeEnd(true, "pio0_sm0.pio");
+            CodeEnd(true, "ReadWS2812.pio");
 
             RunEmulation(1200, "in.csv", "out.csv");
 
