@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReadWS2812Signal
 {
-    class Program
+    class Program : PicopioEmu.Emulator
     {
         static void Main(string[] args)
         {
